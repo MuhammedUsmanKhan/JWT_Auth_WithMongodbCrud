@@ -2,7 +2,7 @@
   "name": "jwt_auth",
   "version": "1.0.0",
   "description": "",
-  "public": "index.mjs",
+  "main": "server.mjs",
   "scripts": {
     "dev": "nodemon server.mjs",
     "devCss": "npx tailwindcss -i input.css -o ./public/output.css --watch",
