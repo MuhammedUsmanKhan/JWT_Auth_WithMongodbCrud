@@ -88,7 +88,7 @@ let VerifyUser = (event) => {
             console.log(response)
             userEmail.value = ""
             userPassword.value = ""
-            // location.href = './SignInFiles/signin.html'
+            location.href = './post.html'
         })
         .catch((err) => {
             console.log(err)

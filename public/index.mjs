@@ -85,7 +85,7 @@ let createUser = (event) => {
             lastName.value = ""
             userEmail.value = ""
             userPassword.value = ""
-            location.href = './SignInFiles/signin.html'
+            location.href = './AppFiles/signin.html'
         })
         .catch((err) => {
             console.log(err)

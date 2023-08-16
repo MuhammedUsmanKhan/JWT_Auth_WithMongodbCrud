@@ -2,7 +2,6 @@
 import { client } from '../../mongodb.mjs'
 import { stringToHash, varifyHash } from "bcrypt-inzi"
 import jwt from 'jsonwebtoken'
-import 'dotenv/config'
 import express from 'express'
 
 const db = client.db('userInfo')
@@ -134,6 +133,15 @@ router.post('/signup', async (req, res, next) => {
 
 })
 
-
+//////////////// logging Out user (Sign Out) ///////////////
+router.get('/logOut',(req,res,next)=>{
+    try {
+        res.clearCookie('token', { httpOnly: true, secure: true });
+        res.redirect('./public/index.html'); // Redirect to a relevant page after logout
+    } catch (error) {
+        console.error("Logout error:", error);
+        res.status(500).send("Error during logout");
+    }
+})
 //app.get()
 export default router
