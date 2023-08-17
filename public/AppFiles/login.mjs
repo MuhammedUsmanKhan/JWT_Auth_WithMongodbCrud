@@ -1,11 +1,11 @@
 
 
 
-let changeImg = (imgSrc) =>{
+let changeImg = (imgSrc) => {
 
-const imgTag = document.getElementsByTagName('image')
+    const imgTag = document.getElementsByTagName('image')
 
-imgTag.src = imgSrc
+    imgTag.src = imgSrc
 
 }
 
@@ -45,8 +45,8 @@ darkMode.addEventListener(`click`, () => {
             input.classList.toggle('bg-[#070724]')
         })
         labels.forEach((label) => {
-                label.classList.toggle('bg-[#070724]')
-                label.classList.toggle('bg-white')
+            label.classList.toggle('bg-[#070724]')
+            label.classList.toggle('bg-white')
         })
         footer.classList.toggle('text-blue-600')
         footer.classList.toggle('text-white')
@@ -67,8 +67,8 @@ lightMode.addEventListener(`click`, () => {
             input.classList.toggle('bg-[#070724]')
         })
         labels.forEach((label) => {
-                label.classList.toggle('bg-[#070724]')
-                label.classList.toggle('bg-white')
+            label.classList.toggle('bg-[#070724]')
+            label.classList.toggle('bg-white')
         })
         footer.classList.toggle('text-blue-600')
         footer.classList.toggle('text-white')
@@ -88,10 +88,23 @@ let VerifyUser = (event) => {
             console.log(response)
             userEmail.value = ""
             userPassword.value = ""
-            location.href = './post.html'
+            if (response.status === 200) {
+                window.location.href = "./post.html";
+            }
         })
         .catch((err) => {
             console.log(err)
         })
 }
 submitForm.addEventListener('submit', VerifyUser)
+
+// document.addEventListener('DOMContentLoaded', () => {
+
+//     // axios.get({ })
+//     // try {
+//     //     window.location.href = './post.html'
+//     // } catch (error) {
+//     //     console.log(error)
+//     // }
+
+// })

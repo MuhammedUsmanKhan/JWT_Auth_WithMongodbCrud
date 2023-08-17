@@ -7,6 +7,12 @@ let router = express.Router()
 import AuthRouter from './routes/auth.mjs'
 import PostRouter from './routes/post.mjs'
 
+
+
+
+
+
+
 //////////////////authentication//////////////////////
 router.use(AuthRouter)
 

@@ -135,7 +135,9 @@ let modalOpen = (postidRef) => {
 }
 window.displayPost = () => {
 
-  axios.get(`/JWT-Auth/posts`)
+  axios.get(`/JWT-Auth/posts`, {
+    withCredentials: true
+  })
     .then((post) => {
       console.log(post)
       //console.log(post.data)
@@ -249,6 +251,9 @@ window.displayPost = () => {
     })
     .catch((error) => {
       console.log(error)
+      if (error.response.status === 401) {
+        window.location.href = "./signin.html";
+      }
     })
 
 }
@@ -361,15 +366,15 @@ let Update = (event) => {
 updtPostBut.addEventListener(`click`, Update)
 
 let logOut = document.getElementById('logOut')
-logOut.addEventListener('click',(event)=>{
+logOut.addEventListener('click', (event) => {
 
-try {
-  let redirect = axios.get('/JWT-Auth/logOut')
-  console.log(redirect)
-  location.href = './signin.html'
-} catch (error) {
-  console.log(error)
-}
+  try {
+    let redirect = axios.get('/JWT-Auth/logOut')
+    console.log(redirect)
+    location.href = './signin.html'
+  } catch (error) {
+    console.log(error)
+  }
 
 })
 
